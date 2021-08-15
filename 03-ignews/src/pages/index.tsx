@@ -1,3 +1,4 @@
+import { FormatCurrency } from 'helper'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { SubscribeButton } from '../components/SubscribeButton'
@@ -44,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const product = {
     priceId: price.id,
-    amount: new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price.unit_amount / 100)
+    amount: FormatCurrency(price.unit_amount / 100)
   }
   return {
     props: { product },

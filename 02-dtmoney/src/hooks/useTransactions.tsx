@@ -25,6 +25,7 @@ const TransactionsContext = createContext<TransactionContextData>({} as Transact
 
 export function TransactionsProvier({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
+
   useEffect(() => {
     api.get('/transactions').then((response) => setTransactions(response.data.transactions))
   }, [])
